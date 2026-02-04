@@ -1,0 +1,23 @@
+{
+  "id": "minimal",
+  "name": "React + Vite + JavaScript + CSS Modules [minimal]",
+  "description": "Minimal React setup with Vite, JavaScript, and CSS Modules",
+  "template": "react-vite",
+  "language": "javascript",
+  "styling": "css-modules",
+  "features": ["javascript", "css-modules"],
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.0",
+    "vite": "^5.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "fileStructure": "standard"
+}
