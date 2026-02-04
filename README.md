@@ -1,1 +1,1 @@
-# zed-base
+# Setme up CLI
