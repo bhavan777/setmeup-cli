@@ -6,6 +6,7 @@ import chalk from 'chalk';
 import type { Preset } from './types/preset';
 import { getAllPresets, saveCustomPreset, clearAllCustomPresets, deleteCustomPreset, loadCustomPresets } from './lib/presets';
 import { setupProject } from './lib/setup';
+import { handleAdd } from './lib/addons';
 
 program
   .name('setmeup')
@@ -48,6 +49,14 @@ program
         await handlePreset(preset);
       }
     }
+  });
+
+program
+  .command('add')
+  .description('Add an addon to a setmeup project')
+  .argument('[addon]', 'Addon ID (e.g. routing); omit for interactive')
+  .action(async (addon?: string) => {
+    await handleAdd(addon);
   });
 
 // Clear all custom presets

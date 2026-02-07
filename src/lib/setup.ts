@@ -20,6 +20,8 @@ export async function setupProject(preset: Preset, projectName: string): Promise
   // Reorganize based on chosen fileStructure
   restructureFiles(targetDir, preset.fileStructure);
 
+  markAsSetmeupProject(targetDir);
+
   console.log(`\nProject ${projectName} created successfully with ${preset.name}!`);
   console.log(`Next steps:`);
   console.log(`  cd ${projectName}`);
@@ -210,4 +212,14 @@ function restructureFiles(targetDir: string, structure: 'standard' | 'feature-ba
       fs.mkdirSync(componentsDir, { recursive: true });
       break;
   }
+}
+
+function markAsSetmeupProject(targetDir: string): void {
+  const markerPath = path.join(targetDir, '.setmeup.json');
+  const marker = {
+    createdBy: 'setmeup-cli',
+    version: '0.1.0',
+    addons: []
+  };
+  fs.writeFileSync(markerPath, JSON.stringify(marker, null, 2));
 }
